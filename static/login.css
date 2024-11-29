@@ -1,0 +1,140 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 레이아웃 계산이 정확하게 되도록 설정 */
+}
+body{
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    width: 900px;
+    margin: 0 auto;
+    font-family: "Gowun Batang", serif;
+}
+/*탑*/
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+#top-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    width: 100%;
+}
+
+.icon {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.icon > li > a, .list > li > a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.icon > li > a:hover, .list > li > a:hover {
+    color: #E48800;
+}
+
+.list {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/*로그인*/
+#login{
+    width: 900px;
+    height: 600px;
+    padding: 50px;
+}
+.login-wrapper{
+    width: 400px;
+    height: 450px;
+    padding: 10px 50px;
+    box-sizing: border-box;
+    margin: 0px auto;
+}
+
+.login-wrapper > h2{
+    font-size: 24px;
+    color: #ffcd4a;
+    margin: 20px;
+    padding: 0 100px;
+
+}
+#login-form > input {
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    border: none; /* 테두리를 없앰 */
+    border-radius: 10px;
+    background-color: #F8F8F8;
+}
+#login-form > input::placeholder{
+    color: #D2D2D2;
+}
+#login-form > input[type="submit"]{
+    color: #fff;
+    font-size: 16px;
+    background-color: #ffcd4a;
+    margin-top: 60px;
+}
+
+#login-form > input[type="checkbox"]{
+    display: none;
+}
+#login-form > label{
+    color: #999999;
+}
+#login-form input[type="checkbox"] + label{
+    cursor: pointer;
+    padding-left: 26px;
+    background-image: url("checkbox.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#login-form input[type="checkbox"]:checked + label{
+    background-image: url("checkbox-active.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/*마지막 리스트*/
+#login-end{
+    float: left;
+    height: 50px;
+    width: 900px;
+    border-top: 2px  solid #ffcd4a;
+}
+.list-end{
+    width: 800px;
+    height: 30px;
+    margin: 10px auto;
+    
+}
+.list-end > li {
+    font-size: 14px;
+    float: left;
+    margin: 3px 10px;
+    padding: 0 55px;
+    border-left: 1px solid #a7a6a6;
+}
+
+.list-end > li:first-child {
+    border-left: none; /* 첫 번째 항목의 border-left 제거 */
+}
+
+.list-end > li > a{
+    color: #a7a6a6;
+}
