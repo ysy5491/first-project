@@ -1,0 +1,254 @@
+/* 전체 페이지 스타일 */
+body {
+    font-weight: bold;
+    margin: 0; /* 페이지 여백 제거 */
+    padding: 0; /* 페이지 안쪽 여백 제거 */
+    background-color: white; /* 연노랑색 배경 */
+    display: flex; /* 페이지를 플렉스 박스로 설정 */
+    justify-content: center; /* 컨텐츠를 가로 중앙에 배치 */
+    font-family: 'Gowun Batang', serif; /* 기본 폰트 설정 */
+}
+
+/* CSS 변수 정의 */
+:root {
+    --header-border-color: white; /* 상단 배너 하단 선 색상 */
+}
+
+/* 컨테이너 설정 */
+.container {
+    width: 70%; /* 기본 컨테이너 폭 */
+    max-width: 900px; /* 최대 폭 설정 */
+    background-color: white; /* 컨테이너 배경색 (연노랑) */
+    box-sizing: border-box; /* 테두리 및 패딩 포함한 정확한 크기 계산 */
+    border-radius: 10px; /* 컨테이너 모서리를 둥글게 */
+}
+
+/* 상단 배너 스타일 */
+.header {
+    background-color: #FFFFFF; /* 상단 배너 배경 흰색 */
+    height: 80px; /* 배너 높이 */
+    display: flex; /* 플렉스 박스로 설정 */
+    justify-content: space-between; /* 좌우 요소 간격 자동 분배 */
+    align-items: center; /* 요소를 세로 중앙에 정렬 */
+    padding: 0 20px; /* 좌우 여백 추가 */
+    border-bottom: 2px solid var(--header-border-color); /* 하단 경계선 */
+}
+
+.header img {
+    height: 60px; /* 로고 이미지 높이 설정 */
+}
+
+/* 상단 배너 내 네비게이션 링크 스타일 */
+.nav-links {
+    display: flex; /* 링크를 가로로 나열 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.nav-links a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    margin-left: 20px; /* 링크 간 좌측 간격 */
+    color: #000; /* 링크 텍스트 색상 (검정) */
+    font-size: 18px; /* 링크 텍스트 크기 */
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #E48800; /* 마우스를 올리면 밑줄 추가 */
+}
+
+/* 동그란 이미지와 툴팁 스타일 */
+.circle-wrapper {
+    display: flex; /* 이미지를 가로로 배치 */
+    gap: 10px; /* 이미지 간 간격 설정 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+/* 동그란 이미지 스타일 */
+.circle-image {
+    width: 40px; /* 이미지 크기 */
+    height: 40px;
+    border-radius: 50%; /* 동그란 모양 */
+    overflow: hidden; /* 자식 요소 넘칠 경우 숨김 */
+    margin-left: 10px; /* 텍스트와 간격 */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 30px;
+    cursor: pointer; /* 클릭 가능하도록 커서 변경 */
+    display: flex; /* 이미지 중앙 정렬을 위해 flex 사용 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+}
+
+.circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 비율 유지하며 잘림 */
+}
+
+
+.circle-container {
+    position: relative; /* 툴팁 위치 계산을 위한 기준 설정 */
+    cursor: pointer; /* 마우스 커서 포인터 모양으로 변경 */
+    margin-left: 20px; /* 좌측 간격 */
+    width: 40px; /* 원의 크기 */
+    height: 40px; /* 원의 크기 */
+    border-radius: 50%; /* 원 모양 */
+    overflow: hidden; /* 이미지가 원을 벗어나지 않도록 설정 */
+    display: flex; /* 이미지 안에서 컨텐츠 정렬을 위한 플렉스 설정 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+
+/* 마우스 오버 시 텍스트 박스 표시 */
+.circle-container {
+    position: relative;
+    overflow: visible; /* 자식 요소가 부모를 벗어날 수 있도록 설정 */
+}
+
+/* 텍스트 박스 (홈페이지, 마이페이지) 스타일 */
+.tooltip {
+    visibility: hidden; /* 기본적으로 숨김 */
+    position: absolute;
+    left: 100%; /* 아이콘의 바로 오른쪽에 위치 */
+    top: 50%;
+    transform: translateY(-50%); /* 세로로 가운데 정렬 */
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 20; /* 다른 요소들보다 위로 올리기 */
+    opacity: 0; /* 기본적으로 투명하게 설정 */
+    transition: opacity 0.3s ease; /* 부드럽게 보이게 하기 위한 효과 */
+}
+
+.circle-container:hover .tooltip {
+    visibility: visible; /* 마우스 오버 시 툴팁 보이기 */
+    opacity: 1; /* 마우스를 올렸을 때 텍스트 박스 보이도록 설정 */
+}
+
+.circle-container:hover .tooltip {
+    visibility: visible; /* 마우스 오버 시 툴팁 보이기 */
+    opacity: 1; /* 마우스를 올렸을 때 텍스트 박스 보이도록 설정 */
+}
+
+/* FAQ 섹션 스타일 */
+.faq-container {
+    padding: 20px; /* FAQ 섹션 내부 여백 */
+    background-color: white; /* FAQ 섹션 배경색 (연노랑) */
+}
+
+.faq-container h1 {
+    text-align: center; /* 제목 가운데 정렬 */
+    margin-bottom: 20px; /* 제목 하단 간격 */
+}
+
+.faq-category {
+    display: flex; /* FAQ 카테고리 가로 정렬 */
+    justify-content: space-around; /* 카테고리 간격 균등 분배 */
+    margin-bottom: 20px; /* 카테고리 섹션 하단 간격 */
+}
+
+.category-box {
+    border: 1px solid #ddd; /* 카테고리 테두리 */
+    border-radius: 8px; /* 테두리 둥글게 */
+    background-color: #fff; /* 배경색 흰색 */
+    padding: 20px; /* 내부 여백 */
+    cursor: pointer; /* 마우스 포인터 표시 */
+    flex: 1; /* 모든 카테고리 박스 동일한 폭으로 확장 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin: 0 10px; /* 좌우 간격 설정 */
+    transition: background-color 0.3s; /* 배경색 변경 애니메이션 */
+}
+
+.category-box:hover {
+    background-color: #f0f0f0; /* 마우스를 올리면 배경색 변경 */
+}
+
+.faq-item {
+    margin: 10px 0; /* FAQ 아이템 간 간격 */
+    border: 1px solid #ddd; /* FAQ 아이템 테두리 */
+    border-radius: 8px; /* 테두리 둥글게 */
+    overflow: hidden; /* 내용이 넘치지 않도록 설정 */
+    background-color: #fff; /* 배경색 흰색 */
+}
+
+.question {
+    padding: 15px; /* 질문 섹션 내부 여백 */
+    cursor: pointer; /* 마우스 포인터 표시 */
+    display: flex; /* 플렉스 박스로 설정 */
+    justify-content: space-between; /* 텍스트와 화살표 간 간격 분배 */
+}
+
+.answer {
+    padding: 15px; /* 답변 섹션 내부 여백 */
+    display: none; /* 기본적으로 숨김 */
+    background-color: #f9f9f9; /* 답변 배경색 */
+}
+
+.faq-item.active .answer {
+    display: block; /* FAQ 활성화 시 답변 표시 */
+}
+
+.arrow {
+    transition: transform 0.3s; /* 화살표 회전 애니메이션 */
+}
+
+.faq-item.active .arrow {
+    transform: rotate(180deg); /* 활성화 시 화살표 아래로 회전 */
+}
+
+/* 버튼 스타일 */
+.button {
+    background-color: green; /* 버튼 배경색 초록색 */
+    color: white; /* 버튼 텍스트 색상 흰색 */
+    padding: 10px 20px; /* 버튼 내부 여백 */
+    border: none; /* 테두리 제거 */
+    border-radius: 5px; /* 테두리 둥글게 */
+    cursor: pointer; /* 마우스 포인터 표시 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.button:hover {
+    background-color: darkgreen; /* 마우스를 올리면 버튼 색 변경 */
+}
+
+/* 이미지 섹션 */
+.image-section {
+    background-color: #f9f9f9; /* 이미지 섹션 배경색 */
+    padding: 20px; /* 내부 여백 */
+    border: 1px solid #ddd; /* 테두리 설정 */
+    border-radius: 10px; /* 테두리 둥글게 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.image-section img {
+    width: 100%; /* 이미지 크기 */
+    max-width: 800px; /* 최대 이미지 폭 설정 */
+    border-radius: 10px; /* 이미지 테두리 둥글게 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 이미지에 그림자 추가 */
+}
+
+/* 퀵 링크 버튼 스타일 */
+.quick-links {
+    display: flex; /* 버튼들을 가로로 배치 */
+    justify-content: center; /* 버튼 중앙 정렬 */
+    gap: 10px; /* 버튼 간 간격 */
+    padding: 20px; /* 내부 여백 */
+}
+
+.quick-link-button {
+    background-color: #ffcc00; /* 버튼 배경색 */
+    padding: 10px 15px; /* 버튼 내부 여백 */
+    border-radius: 5px; /* 테두리 둥글게 */
+    color: white; /* 텍스트 색상 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+    font-weight: bold; /* 글자 두껍게 */
+    transition: background-color 0.3s; /* 배경색 변경 애니메이션 */
+}
+
+.quick-link-button:hover {
+    background-color: #ff9900; /* 마우스를 올리면 배경색 변경 */
+}

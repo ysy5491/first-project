@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코치코</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='inquiry.css') }}"> <!-- 외부 CSS 파일 연결 -->
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 상단 배너 -->
+        <div class="header">
+            <div class="logo">
+                <img src="static/images/글자 로고.png" alt="웹사이트 로고">
+            </div>
+            <div class="nav-links">
+                <!-- 로그아웃 -->
+                <a href="/" class="nav-link">로그아웃</a>
+
+                <!-- 마이페이지 아이콘 -->
+                <div class="circle-container">
+                    <a href="/mypage">
+                        <div class="circle-image">
+                            <img src="static/images/[크기변환]마이페이지 아이콘.png" alt="마이페이지">
+                        </div>
+                    </a>
+                    <div class="tooltip">마이페이지</div>
+                </div>
+
+                <!-- 홈페이지 아이콘 -->
+                <div class="circle-container">
+                    <a href="/">
+                        <div class="circle-image">
+                            <img src="static/images/[크기변환]메인 페이지 아이콘.png" alt="홈페이지">
+                        </div>
+                    </a>
+                    <div class="tooltip">홈페이지</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 섹션 -->
+        <div class="faq-container" id="faqContainer">
+            <h1>자주 묻는 질문</h1>
+            <div class="faq-category">
+                <div class="category-box" onclick="showCategory('feature')">기능</div>
+                <div class="category-box" onclick="showCategory('account')">계정</div>
+                <div class="category-box" onclick="showCategory('additional')">추가 문의사항</div>
+            </div>
+            <!-- 기능 관련 질문 -->
+            <div class="faq-item feature">
+                <div class="question">
+                    <span>사진이 로딩되지 않아요</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">사진이 로딩되지 않는 문제는 인터넷 연결 상태와 관련이 있을 수 있습니다. 우선, 인터넷 연결이 정상적인지 확인해 주세요. Wi-Fi나 모바일 데이터 연결이 안정적인지 점검해 보세요.</div>
+            </div>
+            <div class="faq-item feature">
+                <div class="question">
+                    <span>글씨가 보이지 않아요</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">웹 폰트가 제대로 로딩되지 않으면 글씨가 보이지 않을 수 있습니다. 웹 폰트를 사용하는 경우, 폰트가 제대로 로드되었는지 확인하고, 폰트 파일 경로가 올바르게 설정되어 있는지 점검해 주세요.</div>
+            </div>
+            <div class="faq-item feature">
+                <div class="question">
+                    <span>키워드 버튼이 눌리지 않아요</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">특정 브라우저에서만 버튼이 눌리지 않는다면, 해당 브라우저의 버전이나 설정 문제일 수 있습니다. 다른 브라우저에서 동일한 문제가 발생하는지 확인해 보세요.</div>
+            </div>
+            <div class="faq-item feature">
+                <div class="question">
+                    <span>마이페이지에 내 정보가 뜨지 않아요</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">마이페이지는 사용자가 로그인한 후에 자신의 정보를 볼 수 있습니다. 로그인 상태인지 먼저 확인해 주세요.</div>
+            </div>
+            <!-- 계정 관련 질문 -->
+            <div class="faq-item account">
+                <div class="question">
+                    <span>계정 비밀번호를 까먹었어요</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">비밀번호를 잊으셨다면, 로그인 화면에서 "비밀번호 찾기" 또는 "비밀번호 재설정" 버튼을 클릭해주세요.</div>
+            </div>
+            <div class="faq-item account">
+                <div class="question">
+                    <span>계정을 삭제하고 싶어요</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">계정을 삭제하시려면, 설정 또는 마이페이지에서 계정 관리 메뉴를 찾으실 수 있습니다.
+                    계정 삭제 옵션을 선택한 후, 본인 확인을 위한 절차가 진행될 수 있습니다. 삭제를 진행하기 전, 계정 삭제가 복구할 수 없는 작업임을 충분히 이해하고 결정해 주세요.</div>
+            </div>
+            <div class="faq-item account">
+                <div class="question">
+                    <span>계정이 접속이 안돼요</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">로그인 시 아이디 또는 비밀번호가 정확한지 확인해 주세요. 입력한 정보가 정확한지 다시 한 번 점검해 보세요.</div>
+            </div>
+            <div class="faq-item account">
+                <div class="question">
+                    <span>계정을 새로 만들고 싶어요</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">웹사이트 또는 애플리케이션에서 회원가입 또는 가입하기 버튼을 클릭하여 회원가입 페이지로 이동하세요.</div>
+            </div>
+            <!-- 추가 문의사항 -->
+            <div class="faq-item additional">
+                <div class="question">
+                    <span>추가 문의사항</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="answer">
+                    <p>문의사항은 아래 메일 주소로 보내주세요.</p>
+                    <p><a href="mailto:example@naver.com"><span id="emailAddress" style="cursor: pointer; color: blue; text-decoration: underline;">example@example.com</span></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='inquiry.css') }}"></script> <!-- 외부 JS 파일 연결 -->
+</body>
+</html>
