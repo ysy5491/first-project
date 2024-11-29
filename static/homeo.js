@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const isLiked = icon.dataset.liked === 'true'; // 현재 좋아요 상태 확인
 
                 if (isLiked) {
-                    icon.src = '좋아요(x).png'; // 좋아요 취소
+                    icon.src = 'static/images/좋아요(x).png'; // 좋아요 취소
                     icon.dataset.liked = 'false';
                 } else {
-                    icon.src = '좋아요(o).png'; // 좋아요 누름
+                    icon.src = 'static/images/좋아요(o).png'; // 좋아요 누름
                     icon.dataset.liked = 'true';
                 }
             });
