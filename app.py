@@ -5,7 +5,7 @@ import pymysql, secrets
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16) #세션 암호화 이거 없으면 로그인 기능 x
 
-db = pymysql.connect(host='127.0.0.1', user='root', password='5491', db='ysy', charset='utf8')
+db = pymysql.connect(host='127.0.0.1', user='root1', password='Qaz79004124!', db='ysy', charset='utf8')
 cursor = db.cursor()
 
 @app.route('/')
